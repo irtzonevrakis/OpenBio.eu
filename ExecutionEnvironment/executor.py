@@ -106,6 +106,13 @@ function obc_validate() {
 }
 ''',
 'init_report': r'''
+if [ -n "${OBC_TOOL_PATH}" ] ; then
+    mkdir -p ${OBC_TOOL_PATH}
+fi
+
+if [ -n "${OBC_DATA_PATH}" ] ; then
+    mkdir -p ${OBC_DATA_PATH}
+fi
 
 if [ -n "${OBC_WORK_PATH}" ] ; then
     export OBC_REPORT_PATH=${OBC_WORK_PATH}/${OBC_NICE_ID}.html
